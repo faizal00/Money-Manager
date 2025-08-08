@@ -21,33 +21,7 @@ const ProgressBar = ({ label, amount, maxAmount, color }) => {
   );
 };
 
-const PieChart = ({ data, title }) => {
-  const total = data.reduce((sum, [, amount]) => sum + amount, 0);
-  const colors = [
-    'bg-blue-500', 'bg-green-500', 'bg-red-500', 'bg-yellow-500', 
-    'bg-purple-500'
-  ];
 
-  return (
-    <div className="space-y-2">
-      {data.slice(0, 5).map(([category, amount], index) => {
-        const percentage = total > 0 ? (amount / total) * 100 : 0;
-        return (
-          <div key={category} className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <div className={`w-3 h-3 rounded-full ${colors[index]}`}></div>
-              <span className="text-xs font-medium truncate text-gray-700 dark:text-gray-300">{category}</span>
-            </div>
-            <div className="text-right">
-              <div className="font-bold text-xs text-gray-800 dark:text-white">{formatRupiah(amount)}</div>
-              <div className="text-xs text-gray-500 dark:text-gray-400">{percentage.toFixed(0)}%</div>
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
-};
 
 const Analytics = ({ transactions, transactionTypes, getTypeBalance, getCategoryStats }) => {
   // const categoryStats = getCategoryStats(transactions);

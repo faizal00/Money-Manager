@@ -40,10 +40,7 @@ const App = () => {
   const { apiCall, loading } = useAPI();
 
   useEffect(() => {
-    loadData();
-  }, [loadData]);
-
-  const loadData = async () => {
+    const loadData = async () => {
     try {
       const [transactionsData, settingsData] = await Promise.all([
         apiCall('/transactions'),
@@ -56,7 +53,10 @@ const App = () => {
     } catch (error) {
       console.error('Failed to load data:', error);
     }
-  };
+    };
+    
+    loadData();
+  }, [apiCall]);
 
   const balance = calculateBalance(transactions);
   const income = calculateIncome(transactions);
