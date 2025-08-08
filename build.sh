@@ -1,9 +1,7 @@
 #!/bin/bash
-# Install backend dependencies
-cd server
+# Install Python dependencies
 pip install -r requirements.txt
-cd ..
 
-# Install frontend dependencies and build
+# Install Node dependencies and build React
 npm install
 npm run build
