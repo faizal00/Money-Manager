@@ -50,8 +50,7 @@ const PieChart = ({ data, title }) => {
 };
 
 const Analytics = ({ transactions, transactionTypes, getTypeBalance, getCategoryStats }) => {
-  const categoryStats = getCategoryStats(transactions);
-  const maxCategoryAmount = categoryStats.length > 0 ? categoryStats[0][1] : 0;
+  // const categoryStats = getCategoryStats(transactions);
   
   const expenseCategories = transactions
     .filter(t => t.type === 'expense')
