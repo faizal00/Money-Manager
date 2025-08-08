@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from server.app import app
 import os
 

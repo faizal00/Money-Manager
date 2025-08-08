@@ -2,9 +2,9 @@ services:
   backend:
     source: .
     build:
-      buildCommand: pip install -r requirements.txt
+      buildCommand: pip3 install -r requirements.txt
     deploy:
-      startCommand: python server/app.py
+      startCommand: python3 server/app.py
     variables:
       MONGODB_URI: mongodb+srv://672021233:Faizal00-@cluster0.xkr24zk.mongodb.net/
       PORT: 8000
