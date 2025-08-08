@@ -1,0 +1,19 @@
+services:
+  backend:
+    source: .
+    build:
+      buildCommand: pip install -r requirements.txt
+    deploy:
+      startCommand: python server/app.py
+    variables:
+      MONGODB_URI: mongodb+srv://672021233:Faizal00-@cluster0.xkr24zk.mongodb.net/
+      PORT: 8000
+  
+  frontend:
+    source: .
+    build:
+      buildCommand: npm install && npm run build
+    deploy:
+      startCommand: npx serve -s build -l 3000
+    variables:
+      REACT_APP_API_URL: ${{backend.RAILWAY_PUBLIC_DOMAIN}}
